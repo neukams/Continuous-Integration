@@ -33,15 +33,11 @@ class TestMyDatetime(unittest.TestCase):
 
 
 class TestConvEndian(unittest.TestCase):
-    '''
-    Pending
-    '''
-
-    def test_big(self):
-        '''
-        Pending
-        '''
-        self.assertEqual(conv_endian(954786, "big"), "0E 91 A2")
+ 
+    def test1(self):
+        input = 954786
+        expected = "0E 91 A2"
+        self.assertEqual(conv_endian(input), expected)
 
 
 if __name__ == '__main__':

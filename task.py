@@ -18,8 +18,5 @@ def my_datetime(num_sec):
     return "01-01-1970"
 
 
-def conv_endian(num, endian):
-    '''
-    Pending
-    '''
-    return "0E 91 A2"
+def conv_endian(num, endian='big'):
+    pass
