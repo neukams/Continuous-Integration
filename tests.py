@@ -35,9 +35,14 @@ class TestMyDatetime(unittest.TestCase):
 class TestConvEndian(unittest.TestCase):
 
     def test1(self):
-        input = 954786
+        var = 954786
         expected = "0E 91 A2"
-        self.assertEqual(conv_endian(input), expected)
+        self.assertEqual(conv_endian(var), expected)
+
+    def test2(self):
+        var = -954786
+        expected = "-0E 91 A2"
+        self.assertEqual(conv_endian(var), expected)
 
 
 if __name__ == '__main__':
