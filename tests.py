@@ -44,6 +44,11 @@ class TestConvEndian(unittest.TestCase):
         expected = "-0E 91 A2"
         self.assertEqual(conv_endian(var), expected)
 
+    def test3(self):
+        var = 954786
+        expected = "A2 91 DE"
+        self.assertEqual(conv_endian(var, 'little'), expected)
+
 
 if __name__ == '__main__':
     unittest.main()
