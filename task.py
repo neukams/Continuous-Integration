@@ -19,7 +19,17 @@ def my_datetime(num_sec):
 
 
 def conv_endian(num, endian='big'):
+    negative = False
+
+    if num < 0:
+        num *= -1
+        negative = True
+
     hex_string = int_to_hex(num)
+
+    if negative:
+        hex_string = '-' + hex_string
+
     return hex_string
 
 
@@ -29,15 +39,20 @@ def int_to_hex(num):
 
     hex_string = ''
     space_count = 0
+
     while num > 0:
         remainder = num % 16
         hex_char = hex_dic.get(remainder)
         hex_string = hex_char + hex_string
         space_count += 1
+
         if space_count == 2:
             hex_string = ' ' + hex_string
             space_count = 0
+
         num = num // 16
+
     if len(hex_string) % 2 != 0:
         hex_string = '0' + hex_string
+
     return hex_string
