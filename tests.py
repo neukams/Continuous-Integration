@@ -33,7 +33,7 @@ class TestMyDatetime(unittest.TestCase):
 
 
 class TestConvEndian(unittest.TestCase):
- 
+
     def test1(self):
         input = 954786
         expected = "0E 91 A2"
