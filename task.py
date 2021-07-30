@@ -94,7 +94,6 @@ class Number:
     def hexA(self):
         if not self.isHexadecimal:
             return False
-
         return 10
 
     def hexB(self):
