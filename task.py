@@ -19,6 +19,9 @@ def my_datetime(num_sec):
 
 
 def conv_endian(num, endian='big'):
+    if (endian != 'big') and (endian != 'little'):
+        return None
+
     negative = False
 
     if num < 0:
