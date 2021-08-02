@@ -6,6 +6,7 @@ import unittest
 from task import conv_num
 from task import my_datetime
 from task import conv_endian
+import random
 
 
 class TestConvNum(unittest.TestCase):
@@ -53,6 +54,36 @@ class TestConvEndian(unittest.TestCase):
         var = 954786
         expected = None
         self.assertEqual(conv_endian(var, 'small'), expected)
+
+    # random testing
+    def test5(self):
+        min_int = -2147483648
+        max_int = 2147483647
+        for i in range(0, 500):
+            endian_value = random.randint(0, 1)
+            endian_value = 'big' if endian_value == 1 else 'little'
+            var = random.randint(min_int, max_int)
+            conv_endian(var, endian_value)
+
+    def test6(self):
+        var = 14
+        expected = '0E'
+        self.assertEqual(conv_endian(var, 'little'), expected)
+
+    def test7(self):
+        var = 0
+        expected = '00'
+        self.assertEqual(conv_endian(var), expected)
+
+    def test8(self):
+        var = 2147483647
+        expected = '7F FF FF FF'
+        self.assertEqual(conv_endian(var), expected)
+
+    def test9(self):
+        var = -2147483648
+        expected = '-00 00 00 80'
+        self.assertEqual(conv_endian(var, 'little'), expected)
 
 
 if __name__ == '__main__':

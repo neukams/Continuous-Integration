@@ -19,6 +19,8 @@ def my_datetime(num_sec):
 
 
 def conv_endian(num, endian='big'):
+    # print(endian)                                     # uncomment to run test 5
+    # print(num)                                        # uncomment to run test 5
     if (endian != 'big') and (endian != 'little'):
         return None
 
@@ -38,27 +40,30 @@ def conv_endian(num, endian='big'):
             temp_string = temp_string + last_two + " "
             hex_string = hex_string[:-3]
 
-        hex_string = temp_string.strip()
-
+        hex_string = temp_string
+    hex_string = hex_string.strip()
     if negative:
         hex_string = '-' + hex_string
-
+    # print(hex_string)                                 # uncomment to run test 5
     return hex_string
 
 
 def int_to_hex(num):
-
+    if num == 0:
+        return '00'
     hex_dic = {0: '0', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7',
                8: '8', 9: '9', 10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
 
     hex_string = ''
     space_count = 0
+    char_count = 0
 
     while num > 0:
         remainder = num % 16
         hex_char = hex_dic.get(remainder)
         hex_string = hex_char + hex_string
         space_count += 1
+        char_count += 1
 
         if space_count == 2:
             hex_string = ' ' + hex_string
@@ -66,7 +71,7 @@ def int_to_hex(num):
 
         num = num // 16
 
-    if len(hex_string) % 2 != 0:
+    if char_count % 2 != 0:
         hex_string = '0' + hex_string
 
     return hex_string
