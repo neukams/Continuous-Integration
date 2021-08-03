@@ -100,12 +100,6 @@ def conv_little_endian(hex_string):
         hex_string = hex_string[:-3]
     return temp_string
 
-def conv_endian(num, endian):
-    '''
-    Pending
-    '''
-    return "0E 91 A2"
-
 
 class Number:
     '''
