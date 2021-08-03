@@ -20,10 +20,9 @@ def my_datetime(num_sec):
 
 def conv_endian(num, endian='big'):
     """
-        accepts integer and endian type and returns a hexadcimal string
+    accepts integer and endian type and returns a hexadcimal string
     """
-    # print(endian)                                     # uncomment to run test 5
-    # print(num)                                        # uncomment to run test 5
+    endian = endian.lower()
 
     # if the endian value is something other than big or little, return none
     if (endian != 'big') and (endian != 'little'):
@@ -39,7 +38,8 @@ def conv_endian(num, endian='big'):
     # calls function that returns hexadecimal number string
     hex_string = int_to_hex(num)
 
-    # if endian is little, call conv_little_endian function to convert from big to little endian
+    # if endian is little, call conv_little_endian function to convert from big
+    # to little endian
     if endian == 'little':
         hex_string = conv_little_endian(hex_string)
 
@@ -50,20 +50,20 @@ def conv_endian(num, endian='big'):
     if negative:
         hex_string = '-' + hex_string
 
-    # print(hex_string)                                 # uncomment to run test 5
     return hex_string
 
 
 def int_to_hex(num):
     """
-        accepts integer returns hex number string with two character bytes spaces
+    accepts integer returns hex number string with two character bytes spaces
     """
     if num == 0:
         return '00'
 
     # dictionary that will convert digits to hex number
     hex_dic = {0: '0', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7',
-               8: '8', 9: '9', 10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
+               8: '8', 9: '9', 10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E',
+               15: 'F'}
 
     hex_string = ''
     space_count = 0
@@ -93,7 +93,7 @@ def int_to_hex(num):
 
 def conv_little_endian(hex_string):
     """
-        converts big endian to little endian hex number
+    converts big endian to little endian hex number
     """
     temp_string = ''
 
