@@ -8,11 +8,80 @@ def conv_num(num_str):
     return Number(num_str).numberfy()
 
 
-def my_datetime(num_sec):
-    '''
-    Pending
-    '''
-    return "01-01-1970"
+def my_datetime(seconds: int) -> str:
+    """
+    Returns a date in string format ('MM-DD-YYYY')
+    given the seconds since epoch
+    :param: seconds: int, number of seconds since epoch
+    :return: string: date 'MM-DD-YYY'
+    """
+
+    # variables
+    DAYS_IN_COMMON_MONTH = {1: 31, \
+                            2: 28, \
+                            3: 31, \
+                            4: 30, \
+                            5: 31, \
+                            6: 30, \
+                            7: 31, \
+                            8: 31, \
+                            9: 30, \
+                            10: 31, \
+                            11: 30, \
+                            12: 31}
+    DAY = 86400
+    year = 1970
+    month = 1
+    day = 1
+
+    # calculate year
+    while True:
+
+        # get the number of seconds in this year
+        if (year % 4 != 0) or \
+            (year % 4 == 0 and year % 100 == 0 and year % 400 != 0):
+            add_year = DAY * 365
+        else:
+            add_year = DAY * 366
+
+        # exit criteria
+        if seconds - add_year < 0:
+            break
+
+        # add a year
+        seconds -= add_year
+        year += 1
+
+    # calculate month
+    while True:
+
+        # get the number of seconds in this month
+        if month == 2 and \
+            ( \
+                ((year % 4 == 0) and (year % 100 != 0)) or \
+                ((year % 4 == 0) and (year % 100 == 0 and year % 400 == 0))):
+            add_month = DAY * 29
+        else:
+            add_month = DAY * DAYS_IN_COMMON_MONTH[month]
+
+        # exit criteria
+        if seconds - add_month < 0:
+            break
+
+        seconds -= add_month
+        month += 1
+
+    # calculate day
+    while True:
+        if seconds - DAY < 0:
+            break
+        seconds -= DAY
+        day += 1
+    
+    # return
+    return str(twoDigitInt(month)) + "-" + \
+           str(twoDigitInt(day)) + "-" + \
+           str(year)
 
 
 def conv_endian(num, endian='big'):
