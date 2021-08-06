@@ -17,18 +17,8 @@ def my_datetime(seconds: int) -> str:
     """
 
     # variables
-    DAYS_IN_COMMON_MONTH = {1: 31, \
-                            2: 28, \
-                            3: 31, \
-                            4: 30, \
-                            5: 31, \
-                            6: 30, \
-                            7: 31, \
-                            8: 31, \
-                            9: 30, \
-                            10: 31, \
-                            11: 30, \
-                            12: 31}
+    DAYS_IN_COMMON_MONTH = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31,
+                            8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
     DAY = 86400
     year = 1970
     month = 1
@@ -39,7 +29,7 @@ def my_datetime(seconds: int) -> str:
 
         # get the number of seconds in this year
         if (year % 4 != 0) or \
-            (year % 4 == 0 and year % 100 == 0 and year % 400 != 0):
+                (year % 4 == 0 and year % 100 == 0 and year % 400 != 0):
             add_year = DAY * 365
         else:
             add_year = DAY * 366
@@ -57,9 +47,12 @@ def my_datetime(seconds: int) -> str:
 
         # get the number of seconds in this month
         if month == 2 and \
-            ( \
-                ((year % 4 == 0) and (year % 100 != 0)) or \
-                ((year % 4 == 0) and (year % 100 == 0 and year % 400 == 0))):
+                (
+                        ((year % 4 == 0) and (year % 100 != 0))
+                        or
+                        ((year % 4 == 0) and (
+                                year % 100 == 0 and year % 400 == 0))
+                ):
             add_month = DAY * 29
         else:
             add_month = DAY * DAYS_IN_COMMON_MONTH[month]
@@ -77,11 +70,10 @@ def my_datetime(seconds: int) -> str:
             break
         seconds -= DAY
         day += 1
-    
+
     # return
-    return str(twoDigitInt(month)) + "-" + \
-           str(twoDigitInt(day)) + "-" + \
-           str(year)
+    return str(twoDigitInt(month)) + "-" + str(twoDigitInt(day)) + "-" + \
+        str(year)
 
 
 def conv_endian(num, endian='big'):
@@ -389,4 +381,3 @@ def twoDigitInt(num: int) -> str:
     elif num < 10:
         return str(0) + str(num)
     return str(num)
-
