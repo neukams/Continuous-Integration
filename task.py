@@ -372,3 +372,21 @@ class Number:
             return None
 
         return self.get_number()
+
+
+def twoDigitInt(num: int) -> str:
+    """
+    Given an integer between 1 and 99, convert it to a two-digit string
+    If applicable, add a leading zero
+    ex: 4 -> '04'
+    ex: 12 -> '12'
+    :param: num, a two-digit integer
+    :return: string
+    """
+
+    if num < 1 or num > 99:
+        return "error"
+    elif num < 10:
+        return str(0) + str(num)
+    return str(num)
+
