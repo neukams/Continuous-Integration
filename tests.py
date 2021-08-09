@@ -1,6 +1,5 @@
 '''
 Authors: Spencer Neukam, Dustin Walkup, Michael Zimmerman
-Description:
 '''
 import unittest
 from task import conv_num

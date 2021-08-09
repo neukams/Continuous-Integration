@@ -1,6 +1,5 @@
 '''
 Authors: Spencer Neukam, Dustin Walkup, Michael Zimmerman
-Description:
 '''
 
 
@@ -23,6 +22,7 @@ def my_datetime(seconds: int) -> str:
     year = 1970
     month = 1
     day = 1
+    isLeapYear = False
 
     # calculate year
     while True:
