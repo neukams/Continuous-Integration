@@ -27,10 +27,16 @@ def my_datetime(seconds: int) -> str:
     # calculate year
     while True:
 
-        # get the number of seconds in this year
+        # get the number of seconds in a common year
+        # a leap year only occurs once every 4 years, and has 366 days.
+        # a leap year (i.e. 1972) is divisible by 4,
+        # the exception being that if a year is divisible by 100,
+        # it must also be divisible by 400 to be a leap year.
+        # all other years are common years, and have 365 days.
         if (year % 4 != 0) or \
                 (year % 4 == 0 and year % 100 == 0 and year % 400 != 0):
             add_year = DAY * 365
+        # otherwise, it's a leap year, get the number of seconds
         else:
             add_year = DAY * 366
 
