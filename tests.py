@@ -1,6 +1,5 @@
 '''
 Authors: Spencer Neukam, Dustin Walkup, Michael Zimmerman
-Description:
 '''
 import unittest
 from task import conv_num
@@ -109,15 +108,50 @@ class TestConvNum(unittest.TestCase):
 
 
 class TestMyDatetime(unittest.TestCase):
-    '''
-    Pending
-    '''
+    """
+    Test Class for the my_datetime() function
+    """
 
     def test_zero(self):
-        '''
-        Pending
-        '''
+        """
+        0 seconds since epoch should return epoch
+        """
         self.assertEqual(my_datetime(0), "01-01-1970")
+
+    def test_canvas_examples(self):
+        """
+        Canvas example tests
+        """
+        self.assertEqual(my_datetime(123456789), "11-29-1973")
+        self.assertEqual(my_datetime(9876543210), "12-22-2282")
+        self.assertEqual(my_datetime(201653971200), "02-29-8360")
+
+    def random_testing(self):
+        """
+        Random testing
+        """
+        self.assertEqual(my_datetime(15658919219), "03-18-2466")
+        self.assertEqual(my_datetime(87441747538), "12-02-4740")
+        self.assertEqual(my_datetime(180554127899), "07-13-7691")
+        self.assertEqual(my_datetime(30578684726), "12-31-2938")
+        self.assertEqual(my_datetime(104203010137), "01-23-5272")
+        self.assertEqual(my_datetime(169420530963), "09-21-7338")
+        self.assertEqual(my_datetime(105140905211), "10-13-5301")
+        self.assertEqual(my_datetime(175800114903), "11-19-7540")
+        self.assertEqual(my_datetime(162283651159), "07-25-7112")
+        self.assertEqual(my_datetime(154249369071), "12-19-6857")
+        self.assertEqual(my_datetime(163297868897), "09-14-7114")
+        self.assertEqual(my_datetime(23588344039), "06-27-2717")
+        self.assertEqual(my_datetime(130622646521), "04-08-6109")
+        self.assertEqual(my_datetime(12974675870), "02-24-2381")
+        self.assertEqual(my_datetime(83076822877), "09-08-4602")
+        self.assertEqual(my_datetime(151727270369), "01-17-6778")
+        self.assertEqual(my_datetime(142695209990), "10-30-6491")
+        self.assertEqual(my_datetime(48667988133), "03-24-3512")
+        self.assertEqual(my_datetime(47729571464), "06-28-3482")
+        self.assertEqual(my_datetime(76749863467), "02-08-4402")
+        self.assertEqual(my_datetime(36924182774), "01-31-3140")
+        self.assertEqual(my_datetime(162929327398), "01-10-7133")
 
 
 class TestConvEndian(unittest.TestCase):
